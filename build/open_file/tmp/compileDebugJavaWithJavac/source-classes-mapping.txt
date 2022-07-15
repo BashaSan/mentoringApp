@@ -1,0 +1,4 @@
+com/crazecoder/openfile/BuildConfig.java
+ com.crazecoder.openfile.BuildConfig
+com/crazecoder/openfile/OpenFilePlugin.java
+ com.crazecoder.openfile.OpenFilePlugin
