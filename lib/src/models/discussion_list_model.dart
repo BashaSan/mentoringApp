@@ -9,8 +9,6 @@ import 'package:meta/meta.dart';
 
 class DiscussionModel {
   static List<Discussion>? discussions = [];
-
-  Discussion getByPositions(int pos) => discussions![pos];
 }
 
 List<Discussion> discussionFromJson(String str) =>
@@ -18,6 +16,8 @@ List<Discussion> discussionFromJson(String str) =>
 
 String discussionToJson(List<Discussion> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+
+
 
 class Discussion {
   Discussion({

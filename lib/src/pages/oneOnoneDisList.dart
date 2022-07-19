@@ -29,7 +29,7 @@ class DiscussionsListView extends StatefulWidget {
 }
 
 class _DiscussionsListViewState extends State<DiscussionsListView> {
-  List<Discussion>? discussion;
+  List<Discussion>? dis;
   var isLoaded = false;
 
   @override
@@ -41,14 +41,12 @@ class _DiscussionsListViewState extends State<DiscussionsListView> {
 
 //getting data from discussion API
   getData() async {
-    discussion = await RemoteService().getDiscussions();
-    
-    DiscussionModel.discussions = List.from(discussion!)
-        .map<Discussion>((dis) => Discussion.fromJson(dis))
-        .toList();
+    dis = await RemoteService().getPosts();
+    DiscussionModel.discussions = dis;
 
-    if (discussion!= null) {
+    if (dis != null) {
       setState(() {
+        print("data loaded");
         isLoaded = true;
       });
     }
@@ -57,11 +55,24 @@ class _DiscussionsListViewState extends State<DiscussionsListView> {
   @override
   Widget build(BuildContext context) => Scaffold(
       bottomNavigationBar: BottomAppBar(elevation: 0),
-      appBar: AppBar(backgroundColor: myTheme.appBarTheme,elevation: 0,title: Text("My Discussion",style: myStyle.mainTitle,),),
+      appBar: AppBar(
+        backgroundColor: myTheme.appBarTheme,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios_new),
+          onPressed: () {},
+        ),
+        elevation: 0,
+        title: Text(
+          "My Discussion",
+          style: myStyle.mainTitle,
+        ),
+      ),
       backgroundColor: HexColor("#71C5EE"),
       body: ListView(
         children: <Widget>[
-         SizedBox(height: 30,),
+          SizedBox(
+            height: 30,
+          ),
           Container(
             height: MediaQuery.of(context).size.height - 110.0,
             decoration: BoxDecoration(
@@ -80,7 +91,4 @@ class _DiscussionsListViewState extends State<DiscussionsListView> {
           ),
         ],
       ));
-
-      
 }
-

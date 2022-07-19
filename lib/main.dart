@@ -8,6 +8,8 @@ import 'package:mentoringapp/src/pages/signUp.dart';
 import 'package:mentoringapp/src/widgets/mentor_list_card.dart';
 import 'package:mentoringapp/src/widgets/routes.dart';
 
+import 'src/pages/onboarding.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -18,10 +20,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) => MaterialApp(
         home: Scaffold(
-          body: MentorList(),
+          body: Onboarding(),
         ),
         debugShowCheckedModeBanner: false,
-        initialRoute: MyRoutes.loginRoute,
+       // initialRoute: MyRoutes.loginRoute,
         routes: {
           MyRoutes.signUpRoute: (context) => SignUp(),
           MyRoutes.loginRoute: (context) => Login(),

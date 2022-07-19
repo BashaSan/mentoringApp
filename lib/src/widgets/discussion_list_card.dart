@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -22,7 +23,6 @@ class DiscussionListCard extends StatelessWidget {
           elevation: 10.0,
           child: Container(
             width: 300,
-           
             padding: EdgeInsets.only(left: 10, top: 10),
             child: GridTile(
               child: Row(
@@ -34,11 +34,13 @@ class DiscussionListCard extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text("Title of discussion",
-                              overflow: TextOverflow.fade,
-                              maxLines: 1,
-                              softWrap: false,
-                              style: myStyle.discussionTitle,),
+                          Text(
+                            "Title of discussion",
+                            overflow: TextOverflow.fade,
+                            maxLines: 1,
+                            softWrap: false,
+                            style: myStyle.discussionTitle,
+                          ),
                           "description of Discusision will be shown here this is th ediscussioon description as of now dummy data is icluded"
                               .text
                               .textStyle(myStyle.description)
@@ -54,9 +56,11 @@ class DiscussionListCard extends StatelessWidget {
                                     Icons.message_outlined,
                                     color: HexColor("#71C5EE"),
                                   )),
+                              Icon(CupertinoIcons.arrow_down),
                               Text(
-                                  "${DateFormat("dd MMM yyyy").format(DateTime.now())}",),
-                              Icon(Icons.remove_red_eye_rounded)
+                                "${DateFormat("dd MMM yyyy").format(DateTime.now())}",
+                              ),
+                              Icon(Icons.remove_red_eye_rounded),
                             ],
                           )
                         ],
